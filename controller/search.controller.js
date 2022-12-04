@@ -28,7 +28,7 @@ searchController.search = async ( req , res , next ) => {
                 }
                 const trying = await Trying.findOne({})
                 let time = Math.abs(new Date().getTime() - user.timeStart.getTime())
-                if(  time > 100000 ) {
+                if(  time > 3600000 ) {
                     await User.findOneAndUpdate({ user_agent : user_agent } , {
                         numberOfTry : 1
                     })
